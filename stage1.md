@@ -6,7 +6,7 @@ MongoDB Atlas ofrece un servicio gratuito para alojar bases de datos en remoto, 
 ## Registro y configuración de Cluster
 
 1. Acceder a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) y comenzar el proceso de registro con los datos personales.<br/><br/>
-2. En la siguiente pantalla, seleccionar *Skip*: 
+2. En la siguiente pantalla, indicar el nombre de la organziación (cualquiera), el nombre del proyecto (el nombre de tu aplicación mismamente, sólo se usa a efetcos identificativos) y Javascript como lenguaje. Selecciona *Continue*: 
   <img src="https://res.cloudinary.com/ironhack-german/image/upload/v1601658684/Captura_de_pantalla_2020-10-02_a_las_19.09.26.png" width="700"/><br/><br/>
 3. En la siguiente pantalla, seleccionar *Shared Cluster* (compartido y gratuito):
   <img src="https://res.cloudinary.com/ironhack-german/image/upload/v1601658764/Captura_de_pantalla_2020-10-02_a_las_19.12.07.png" width="700"/><br/><br/>
