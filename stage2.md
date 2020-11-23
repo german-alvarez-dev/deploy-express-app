@@ -2,7 +2,7 @@
 
 En este punto, tu aplicación de ExpressJS está conectada a una base de datos local de MongoDB que es accedida a través del método `connect()`de Mongoose y el string de conexión `mongodb://localhost/yourdatabase`. Esto es apto para un entorno local de desarrollo, pero no sería posible accederla desde un entorno de producción ya que, valga la redundancia, es *local*. Tu equipo no cumple ninguno de los requisitos de accesibilidad, capacidad o concurrencia de un servidor, entre otros. 
 
-Realizaremos aquí las operaciones necesarias para transferir tu base de datos a la nube: exportar las colecciones locales de tu eqiopo a una base de datos remota (de producción) en [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) contra la que trabajarás en adelante.
+Realizaremos aquí las operaciones necesarias para transferir tu base de datos a la nube: exportar las colecciones locales de tu equipo a una base de datos remota (de producción) en [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) contra la que trabajarás en adelante.
 
 ## Conexión de Mongo Compass con la base de datos remnota
 
