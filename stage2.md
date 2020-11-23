@@ -1,56 +1,73 @@
+# Paso a producción: base de datos
 
-# Registro y creación de aplicación en Heroku
+En este punto, tu aplicación de ExpressJS está conectada a una base de datos local de MongoDB que es accedida a través del método `connect()`de Mongoose y el string de conexión `mongodb://localhost/yourdatabase`. Esto es apto para un entorno local de desarrollo, pero no sería posible accederla desde un entorno de producción ya que, valga la redundancia, es *local*. Tu equipo no cumple ninguno de los requisitos de accesibilidad, capacidad o concurrencia de un servidor, entre otros. 
 
-El objetivo final que perseguimos con el proceso de pasar a producción (despliegue, _deploy_, etc) es disponer de nuestra aplicación local de Express subida a un servidor en la nube y accesible mediante una URL pública como `https://myserver.herokuapp.com/`.
+Realizaremos aquí las operaciones necesarias para transferir tu base de datos a la nube: un servidor remoto (de producción) en [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) contra el que trabajarás en adelante, exportando las colecciones en tu equipo e importándolas.
 
-Heroku ofrece un servicio gratuito de alojamiento para aplicaciones basadas en NodeJS, pudiendo desplegar a sus servidores los archivos de tu servidor y obteniendo así la URL que permitirá accederlo.
+## Conexión de Mongo Compass con la base de datos remnota
 
-## Elige el nombre de tu aplicación
+Mongo Compass permite la conexión tanto a las bases de datos locales como a un base de datos remota.
 
-Tú elegirás qué nombre deseas para tus aplicación, aunque en adelante usaremos para esta documentación el nombre `myserver` como ejemplo, lo que daría lugar a la URL `https://myserver.herokuapp.com/`. 
+1. Abre Mongo Compass y en el menú superior selecciona *Connect => Connect to...*
 
-Si tu proyecto se llama, por ejemplo, _Donuts Planet_, sería ideal elegir un nombre como `donuts-planet`, lo que dará lugar a la URL `https://donuts-planet.herokuapp.com/`. 
+2. Pega tu string de conexión de MongoDB Atlas y selecciona Connect. Estarás visualizando asi tu Cluster donde a continuación importaremos tus datos. 
 
-No llames a tu aplicación `myserver`. Este nombre sólo lo usaremos a efectos ejemplificativos.
+## Exportación de base de datos local
 
-## Registro 
+MongoDB permite exportar como archivos JSON tus colecciones de una BBDD local. Estos pueden ser después importados a una BBDD remota. 
 
-Accede a [Heroku](https://www.heroku.com/) y realiza el proceso de registro con tus datos personales.
+1. Accede mediante la terminal al directorio donde deseas crear los archivos JSON de tus colecciones.
 
-Todos los demás pasos los realizaremos desde la terminal, por lo que no es necesario continuar ningún proceso en la página web.
+2. Haz uso del comando `mongoexport` de MongoDB para exportarte la primera colección, siguiendo esta sintaxis:
 
-## Instalación de Heroku CLI
-Para hacer uso de los comandos de Heroku en tu terminal, es necesario realizar la instalación de la Interfaz de Línea de Comandos (CLI) de Heroku, accediendo a [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) y siguiendo las instrucciones de instalación. 
-Esto habilitará el uso de [todos los comandos de Heroku](https://devcenter.heroku.com/articles/heroku-cli-commands) en nuestra terminal.
-
-## Inicio de sesión Heroku CLI
-Para identificarnos en Heroku CLI y acceder a nuestra cuenta de Heroku desde la terminal, usaremos el comando `heroku login` siguiendo los pasos. 
-
-Podremos cerrar la sesión cuando necesitemos mediante el comando `heroku logout`.
-
-## Creación de aplicación en Heroku
-
-Crearemos ahora una aplicación de Heroku donde alojar nuestro servidor de ExpressJS. 
+   `mongoexport --collection=<collection> --db=<database> --out=<file>`
     
-1. Accede mediante la terminal a la raíz de tu aplicación, donde se encuentra su `package.json`, e introduce el comando `heroku create <appname>`, siendo `<appname>` el nombre elegido para tu aplicación. Ejemplo:
+    - Sustituye `<collection>` por el nombre de la colección
+    - Sustituye `<database>` por el nombre de la base de datos
+    - Sustituye `<file>` por el nombre del archivo que creará MongoDB con tu colección, con extensión `.json`.
 
-   ````
-   heroku create myserver
-   ````
-
-2. Ahora enlaza el directorio `/client` en el que te encuentras al Git de la aplicación de Heroku mediante el comando 
-
-   ````
-   heroku git:remote -a myclient
-   ````
-
-3. Puedes comprobar en cualquier momento la aplicación de Heroku asociada a un Git mediante el comando
-
-   ````
-   heroku apps:info
-   ````
+   Ejemplo:
  
-Una vez que hayas procedido, podrás acceder a tu URL. Si bien aún no has subido tus archivos, esa URL permanecerá disponible para cuando procedamos.
+     `mongoexport --collection=students --db=school --out=students-collection.json`
 
-Recuerda que el número máximo de aplicaciones que podrás crear en una cuenta de Heroku sin indicar los datos de tu tarjeta de crédito es de 5 aplicaciones.
+3. Comprueba cómo se ha creado el archivo con los datos y repite el proceso para colección, cambiando el nombre de la colección y el nombre del archivo en cada una.
 
+## Importación de base de datos remota
+
+MongoDB Atlas permite alojar y gestionar bases de datos en sus servidores a través del string de conexión obtenido tras el registro.
+
+1. Accede mediante la terminal al directorio donde se encuentran los archivos JSON de tus colecciones.
+2. Haz uso del comando `mongoimport` de MongoDB para importarte la primera colección, siguiendo esta sintaxis:
+
+   `mongoimport --uri="<connectionstring>" --collection=<collection> --file=<file>`
+    
+    - Sustituye `<connectionstring>` por el string de conexión de MongoDB Atlas, entre comillas. 
+    - Sustituye `<collection>` por el nombre de la colección que se creará, que debe ser igual al nombre de la colección local.
+    - Sustituye `<file>` por el nombre del archivo donde se encuentran los datos de la colección.
+
+   Ejemplo:
+ 
+     `mongoimport --uri="mongodb+srv://your_user:your_pwd.ooyyy.mongodb.net/school" --collection=students --file=students-collection.json`
+     
+     Si ya habías importado antes esta colección, incluye el flag `--drop` para vaciarla previo a re-importarla y evitar que se acumulen los registros.
+
+3. En Mongo Compass, actualiza la vista y comprueba que se ha creado tanto tu colección como los documentos que la conforman. Lo que estás viendo es ya tu base de datos remota.
+4. Repite el proceso para cada colección, cambiando el nombre de la colección y el nombre del archivo en cada comando.
+
+
+## Conexión de la API local con la base de datos remota
+
+Despídete de tu base de datos local porque en adelante trabajarás contra la base de datos remota, tal y como hacías con la base de datos local. Todas las operaciones pueden realizarse de igual manera en una y otra, así como ambas pueden ser gestionadas a través de Mongo Compass como ya has visto.
+
+1. Accede al archivo `.env` de tu aplicación de Express, y crea la variable de entorno `DB_REMOTE` con el string de conexión de MongoDB Atlas como valor. 
+
+    `DB_REMOTE=mongodb+srv://your_user:your_pwd.ooyyy.mongodb.net/school`
+
+2. Modifica el método `connect()` de tu aplicación, tomando como valor de conexión esta variable de entorno:
+
+    ````javascript
+    mongoose
+       .connect(process.env.DB_REMOTE, ...
+    ````
+
+3. Reinicia el servidor y comprueba cómo sigue funcionando con normalidad, ahora contra MongoDB Atlas.
