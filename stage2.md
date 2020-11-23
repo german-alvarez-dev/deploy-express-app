@@ -55,7 +55,7 @@ MongoDB Atlas permite alojar y gestionar bases de datos en sus servidores a trav
 4. Repite el proceso para cada colección, cambiando el nombre de la colección y el nombre del archivo en cada comando.
 
 
-## Conexión de la API local con la base de datos remota
+## Conexión de la base de datos remota con tu aplicación de ExpressJS
 
 Despídete de tu base de datos local porque en adelante trabajarás contra la base de datos remota, tal y como hacías con la base de datos local. Todas las operaciones pueden realizarse de igual manera en una y otra, así como ambas pueden ser gestionadas a través de Mongo Compass como ya has visto.
 
