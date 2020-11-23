@@ -4,9 +4,7 @@
 
 Describir el proceso para deplegar a producción en [Heroku](https://www.heroku.com/) + [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) una aplicación de [ExpressJS](https://expressjs.com/).
 
-## Especificaciones
-
-El deploy se realizará en base a los siguientes objetivos:
+## Objetivo del deploy
 
 Hacer el paso a producción de la base de datos local a una base de datos remota en MongoDB Atlas:
   1. Crear una base de datos remota en MongoDB Atlas (stage 1).
