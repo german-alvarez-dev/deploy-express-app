@@ -10,7 +10,7 @@ Para ello, accede mediante la terminal al directorio raíz de tu servidor y aseg
 
        heroku config:set CLOUDINARY_NAME="german-cloud" --app donuts-planet
   
-No olvides sustituir `myServer` por el nombre de tu aplicación servidor. Puedes consultar el valor de cualquier variable de entorno con el comando `heroku config:get NOMBREVARIABLE` 
+No olvides entrecomillar el valor de cada variable. Puedes consultar el valor de cualquier variable de entorno con el comando `heroku config:get NOMBREVARIABLE` 
 
 ## Paso a producción
 
