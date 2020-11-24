@@ -40,7 +40,7 @@ Crearemos ahora una aplicación de Heroku donde alojar nuestro servidor de Expre
 2. Ahora enlaza el directorio `/client` en el que te encuentras al Git de la aplicación de Heroku mediante el comando 
 
    ````
-   heroku git:remote -a myclient
+   heroku git:remote -a myserver
    ````
 
 3. Puedes comprobar en cualquier momento la aplicación de Heroku asociada a un Git mediante el comando
@@ -49,7 +49,7 @@ Crearemos ahora una aplicación de Heroku donde alojar nuestro servidor de Expre
    heroku apps:info
    ````
  
-Una vez que hayas procedido, podrás acceder a tu URL. Si bien aún no has subido tus archivos, esa URL permanecerá disponible para cuando procedamos.
+Una vez que hayas procedido, podrás acceder a tu URL mediante `heroku open`. Si bien aún no has subido tus archivos, esa URL permanecerá disponible para cuando procedamos.
 
 Recuerda que el número máximo de aplicaciones que podrás crear en una cuenta de Heroku sin indicar los datos de tu tarjeta de crédito es de 5 aplicaciones.
 
