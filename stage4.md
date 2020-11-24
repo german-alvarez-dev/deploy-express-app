@@ -17,7 +17,7 @@ No olvides sustituir `myServer` por el nombre de tu aplicación servidor. Puedes
 Transferir los archivos a la aplicación de Heroku hará accesible tu servidor desde tu URL de Heroku.
 
 1. Accede mediante la terminal a la raíz de tu servidor, donde se encuentra el archivo `package.json`.
-2. Revisa que dispones de un archivo `.gitignore` donde se ignoran tanto el directorio `node_modules` como el archivo `.env`.
+2. Revisa que dispones de un archivo `.gitignore` donde se ignoran tanto `/node_modules` como `.env`.
 3. Agrega los cambios y realiza un primer commit:
        
        git add .
