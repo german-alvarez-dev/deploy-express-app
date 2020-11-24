@@ -1,6 +1,6 @@
 # Paso a producción: servidor
 
-Transferir tu sevidor de ExpressJS local a producción supone _desplegar_ los archivos que la componen a un servidor externo (tu aplicación de Heroku), permitiendo así que las respuestas que ahora se emiten desde `http://localhost:3000` pasen a realizarse desde `https://myserver.herokuapp.com`.
+Transferir tu sevidor de ExpressJS local a producción supone _desplegar_ los archivos que la componen a un servidor externo (tu aplicación de Heroku), permitiendo así que las respuestas que ahora se emiten desde `http://localhost:3000` pasen a realizarse desde `https://donuts-planet.herokuapp.com`.
        
 ## Variables de entorno remoto
 
@@ -8,7 +8,7 @@ Debido a que el archivo `.env` no será desplegado, es necesario habilitar las v
 
 Para ello, accede mediante la terminal al directorio raíz de tu servidor y asegúrate de que está enlazado al Git de servidor mediante `heroku apps:info`. Declara entonces cada una de las variables de entorno de tu archivo `.env` con el comando `heroku config:set NOMBREVARIABLE=”VALORVARIABLE” --app nombreApp`. Ejemplo:
 
-       heroku config:set CLOUDINARY_NAME="german-cloud" --app myServer
+       heroku config:set CLOUDINARY_NAME="german-cloud" --app donuts-planet
   
 No olvides sustituir `myServer` por el nombre de tu aplicación servidor. Puedes consultar el valor de cualquier variable de entorno con el comando `heroku config:get NOMBREVARIABLE` 
 
