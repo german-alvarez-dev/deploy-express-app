@@ -6,11 +6,11 @@ Heroku ofrece un servicio gratuito de alojamiento para aplicaciones basadas en N
 
 ## Elige el nombre de tu aplicación
 
-Tú elegirás qué nombre deseas para tus aplicación, aunque en adelante usaremos para esta documentación el nombre `myserver` como ejemplo, lo que daría lugar a la URL `https://myserver.herokuapp.com/`. 
+Tú elegirás qué nombre deseas para tus aplicación, aunque en adelante usaremos para esta documentación el nombre `donuts-planet` como ejemplo, lo que daría lugar a la URL `https://donuts-planet.herokuapp.com/`. 
 
-Si tu proyecto se llama, por ejemplo, _Donuts Planet_, sería ideal elegir un nombre como `donuts-planet`, lo que dará lugar a la URL `https://donuts-planet.herokuapp.com/`. 
+Si tu proyecto se llama, por ejemplo, _Retaurants Locator_, sería ideal elegir un nombre como `restaurants-locator`, lo que dará lugar a la URL `https://restaurants-locator.herokuapp.com/`. 
 
-No llames a tu aplicación `myserver`. Este nombre sólo lo usaremos a efectos ejemplificativos.
+No llames a tu aplicación `donuts-planet`. Este nombre sólo lo usaremos a efectos ejemplificativos.
 
 ## Registro 
 
@@ -34,13 +34,13 @@ Crearemos ahora una aplicación de Heroku donde alojar nuestro servidor de Expre
 1. Accede mediante la terminal a la raíz de tu aplicación, donde se encuentra su `package.json`, e introduce el comando `heroku create <appname>`, siendo `<appname>` el nombre elegido para tu aplicación. Ejemplo:
 
    ````
-   heroku create myserver
+   heroku create donuts-planet
    ````
 
 2. Ahora enlaza el directorio `/client` en el que te encuentras al Git de la aplicación de Heroku mediante el comando 
 
    ````
-   heroku git:remote -a myserver
+   heroku git:remote -a donuts-planet
    ````
 
 3. Puedes comprobar en cualquier momento la aplicación de Heroku asociada a un Git mediante el comando
