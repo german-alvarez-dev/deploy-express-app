@@ -18,17 +18,12 @@ Transferir los archivos a la aplicación de Heroku hará accesible tu servidor d
 
 1. Accede mediante la terminal a la raíz de tu servidor, donde se encuentra el archivo `package.json`.
 2. Revisa que dispones de un archivo `.gitignore` donde se ignoran tanto `/node_modules` como `.env`.
-3. Agrega los cambios y realiza un primer commit:
-       
-       git add .
-       git commit -m "first server deploy on heroku app"  
-
-4. Procede a la subida:
+3. Procede a la subida:
        
        git push heroku master
 
-5. Una vez finalizado, comprueba la ausencia de errores en los logs mediante el comando `heroku logs --tail`.
-6. Abre tu aplicación en el navegador mediante `heroku open`, o tecleando la URL de la misma. Podrás comprobar que funciona con normalidad, ahora en remoto.
+4. Una vez finalizado, comprueba la ausencia de errores en los logs mediante el comando `heroku logs --tail`.
+5. Abre tu aplicación en el navegador mediante `heroku open`, o tecleando la URL de la misma. Podrás comprobar que funciona con normalidad, ahora en remoto.
 
 ## Interfaz de usuario de Heroku
 
