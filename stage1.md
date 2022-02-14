@@ -25,7 +25,7 @@ MongoDB Atlas ofrece un servicio gratuito para alojar bases de datos en remoto, 
 
 ## Obtención del string de conexión
 8. En el panel del Cluster, hacer click en el botón *Connect*:
-  <img width="933" alt="Captura de pantalla 2022-02-14 a las 10 29 25" src="https://user-images.githubusercontent.com/46670724/153837675-e6345b0e-972f-4b18-8cd3-0a5f9598caa6.png"> <br/><br/>
+  <img width="1201" alt="Captura de pantalla 2022-02-14 a las 10 32 35" src="https://user-images.githubusercontent.com/46670724/153839026-d118427d-ce83-46aa-b738-83835e5d416d.png"> <br/><br/>
 9. En la ventana modal, seleccionar *Connect using MongoDB Compass* entre los diferentes métodos de conexión:
   <img width="1201" alt="Captura de pantalla 2022-02-14 a las 10 34 35" src="https://user-images.githubusercontent.com/46670724/153838033-7a3590c2-4367-44f9-9201-351530ab6a8f.png"><br/><br/>
 10. Seleccionar *I have mongo Compass*, copiar el string de conexión inferior y modificarlo de la siguiente forma:
