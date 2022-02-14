@@ -35,6 +35,6 @@ MongoDB Atlas ofrece un servicio gratuito para alojar bases de datos en remoto, 
     
 ## Integración del string de conexión
 11. Ya puedes conectarte a tu BBDD remota pegando el string de conexión en dos lugares:
-    - Para Mongo Compass, pegarlo en la pantalla inicial de conexión.
+    - Para Mongo Compass, pegarlo en la pantalla inicial de conexión. Estarás conectado a tu BBDD remota, contra la que podrás operar con normalidad tal y como lo hacías en local.
     - Para una conexión mediante Mongoose, pegarlo como string de conexión en el archivo `.env` para que sea utilizado en `mongoose.connect()`
 
