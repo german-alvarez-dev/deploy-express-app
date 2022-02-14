@@ -21,7 +21,7 @@ MongoDB Atlas ofrece un servicio gratuito para alojar bases de datos en remoto, 
 6. En la sección de modo de conexión, seleccionar la opción **My local environment** e incluir el valor `0.0.0.0/0` en la sección **IP Address**, lo que permitirá acceder la BBDD desde cualquier IP:
   <img width="933" alt="Captura de pantalla 2022-02-14 a las 10 29 25" src="https://user-images.githubusercontent.com/46670724/153837294-39b5953c-3feb-40f3-be8b-5c41c93e32f2.png">
 <br/><br/>
-7. Click en *Add entry* y en *Finish and close*.
+7. Click en _Add entry_ y en _Finish and close_.
 
 ## Obtención del string de conexión
 8. En el panel del Cluster, hacer click en el botón *Connect*:
